@@ -1,0 +1,96 @@
+//theme dark
+.dk {
+  * {
+    transition: background 0.3s, background-color 0.3s;
+  }
+  #root {
+    background: #242b31;
+    color: #fff;
+  }
+  nav.header,
+  .sidenav {
+    transition: 0.3s;
+    background: #37516d;
+    border-color: #18406b;
+  }
+  .aboutC.cover {
+    background-color: rgb(100, 89, 74) !important;
+  }
+  .aboutW.cover {
+    background-color: rgb(104, 109, 130) !important;
+  }
+  .cover img,
+  .wigs .wigle,
+  .thanksSection img,
+  .contactpage .mail img,
+  .contactpage .phone img {
+    filter: brightness(0.8) hue-rotate(235deg) sepia(0.6);
+  }
+  .aboutCC.cover {
+    background-color: rgb(100, 89, 73) !important;
+  }
+  .aboutH.cover {
+    background: #676d80;
+  }
+  .leftProject .infoProject a:before,
+  .rightProject .infoProject a:before {
+    background: #5f6470;
+    color: #ffffff;
+    border: 1px solid #37516d;
+  }
+  .aboutpage .heading,
+  .heading1,
+  .recentHeader,
+  .leftProject .infoProject h2,
+  .rightProject .infoProject h2,
+  .thanksSection h2,
+  .workpage .heading,
+  .contactpage .mail .info .heading,
+  .contactpage .phone .info .heading {
+    color: #686d82;
+  }
+  .leftProject .infoProject h4,
+  .rightProject .infoProject h4,
+  .techUsed ul li {
+    color: #9399b1;
+  }
+  .aboutpage .info p,
+  .leftProject .infoProject p,
+  .rightProject .infoProject p {
+    color: #ae9272;
+  }
+  .cvBTN,
+  .leftProject .infoProject a,
+  .rightProject .infoProject a {
+    background-color: #37516d;
+    border: 1px solid #18406b;
+    &:hover {
+      color: #ae9272;
+    }
+  }
+  nav.header .iconsright .ToggNav:hover *,
+  nav.header .iconsLeft svg:hover,
+  .sidenav .logoNav ul li a:hover,
+  .sidenav .social svg:hover {
+    color: #ae9272;
+  }
+  .sidenav .logoNav ul li a:hover:before {
+    background: #ae9272;
+  }
+  footer {
+    filter: brightness(0.8) hue-rotate(-295deg) sepia(0.2);
+  }
+  .backdrop {
+    background: #10364a63;
+  }
+  .leftProject .mac,
+  .rightProject .mac {
+    transition: 0.3s;
+    filter: hue-rotate(75deg);
+  }
+
+  ::selection {
+    background: #18406b;
+    color: #ae9272;
+  }
+}

@@ -1,0 +1,184 @@
+nav.header {
+  background: $main;
+  border-bottom: 2px solid $accent;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  .iconsLeft {
+    color: #fff;
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    svg {
+      transition: 0.3s;
+      font-size: 30px;
+      stroke-width: 0.1px;
+      cursor: pointer;
+
+      &:hover {
+        color: $accent;
+        transform: scale(1.1);
+      }
+    }
+  }
+  .iconsright {
+    display: flex;
+    align-items: center;
+    .ToggNav {
+      background: transparent;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      outline: 0;
+      span {
+        color: #fff;
+        position: relative;
+        top: -1px;
+        right: 5px;
+      }
+      svg {
+        color: #fff;
+        font-size: 20px;
+      }
+
+      &:hover {
+        * {
+          color: $accent;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+}
+.backdrop {
+  background: #e63e452e;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 3;
+  &.on {
+    display: block;
+  }
+}
+.sidenav {
+  position: fixed;
+  margin-top: 40px;
+  height: 100%;
+  width: 300px;
+  top: 0;
+  right: 0;
+  background: $main;
+  transition: 0.3s;
+  z-index: 1;
+  transform: translateX(100%);
+  &.show {
+    transform: translateX(0%);
+  }
+  .logoNav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+      width: 100%;
+      max-width: 100px;
+      li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+          color: $accent;
+          &:before {
+            content: " ";
+            width: 100%;
+            position: absolute;
+            height: 2px;
+            background: $accent;
+            left: 0;
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+    img {
+      width: 100%;
+      max-width: 50px;
+      padding-top: 50px;
+    }
+  }
+  .social {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+      color: #fff;
+      font-size: 30px;
+      transition: 0.3s;
+      &:nth-child(2) {
+        margin: 0 20px;
+      }
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+}
+.cover {
+  background: #ea575b;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  img {
+    width: 100%;
+    max-width: 1100px;
+  }
+}
+.themChange {
+  display: flex;
+  width: 20px;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  left: -10px;
+  svg {
+    transition: 0.3s;
+    cursor: pointer;
+    color: #fff;
+  }
+  .light svg:hover {
+    color: #f1dc23;
+    transform: scale(1.4);
+  }
+  .dark svg:hover {
+    color: #325baf;
+    transform: scale(1.4);
+  }
+}

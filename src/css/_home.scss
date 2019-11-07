@@ -1,0 +1,203 @@
+.heading1 {
+  color: $main;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 50px;
+}
+.heading2 {
+  color: #566862;
+  text-align: center;
+  font-size: 22px;
+  margin-top: 100px;
+}
+.myPic {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+    max-width: 140px;
+  }
+}
+.wigs {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  margin-top: 160px;
+  margin-bottom: 160px;
+  > a {
+    color: $main;
+    &:hover {
+      text-decoration: none;
+      color: darken($color: $main, $amount: 5);
+    }
+    &:nth-child(2) {
+      img {
+        animation-duration: 1.1s;
+      }
+    }
+  }
+  .wigle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100px;
+      // animation: kz7 3s;
+      // animation-timing-function: ease;
+      // animation-iteration-count: infinite;
+      -webkit-animation-name: floating;
+      animation-name: floating;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+      animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  }
+  .wigletxt {
+    margin-top: 20px;
+  }
+}
+.recentHeader {
+  text-align: center;
+  margin-bottom: 70px;
+  color: $main;
+}
+.leftProject,
+.rightProject {
+  margin-top: 80px;
+  .mac {
+    width: 100%;
+  }
+  .gif {
+    position: absolute;
+    bottom: 35%;
+    z-index: -1;
+    width: 53.7%;
+    left: 22.6%;
+    height: 48%;
+  }
+  .infoProject {
+    h2 {
+      color: $main;
+      font-size: 50px;
+    }
+    h4 {
+      color: #555;
+    }
+    p {
+      color: #000;
+      max-width: 500px;
+    }
+    a {
+      text-decoration: none;
+      color: $accent;
+      background: $main;
+      padding: 5px 10px;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      max-width: 110px;
+
+      &:before {
+        content: "View Project";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: $accent;
+        color: $main;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(100%);
+        transition: 0.3s;
+        border: 1px solid $main;
+      }
+      &:hover {
+        &:before {
+          transform: translateY(0%);
+        }
+      }
+    }
+  }
+}
+.rightProject {
+  .leftimgs {
+    order: 2;
+  }
+  .infoProject {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    a {
+      float: right;
+      display: block;
+      clear: both;
+    }
+    p {
+      text-align: right;
+      float: right;
+      clear: both;
+      display: block;
+    }
+  }
+}
+.recentProjects {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.thanksSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 240px 0;
+  flex-direction: column;
+  h2 {
+    text-align: center;
+    color: $main;
+    font-size: 30px;
+  }
+  img {
+    width: 100%;
+    max-width: 400px;
+    margin-left: -10px;
+  }
+}
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, 25px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
+}
+@keyframes kz7 {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  10% {
+    transform: scale(1, 0.6);
+  }
+  30% {
+    transform: scale(1.1, 1.1) translateY(-10px);
+  }
+  50% {
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

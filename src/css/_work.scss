@@ -1,0 +1,108 @@
+.workpage {
+  overflow: hidden;
+  .heading {
+    color: $main;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+.workProjects {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.techUsed {
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+      padding-left: 5px;
+    }
+  }
+}
+.designs {
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  max-width: 1400px;
+  .swiper-slide {
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+    }
+  }
+}
+//about page
+.aboutpage {
+  padding-bottom: 40px;
+  .heading {
+    color: $main;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 50px;
+
+    padding-bottom: 50px;
+    margin: 0 auto;
+    display: block;
+  }
+  .info {
+    p {
+      text-align: center;
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+}
+.cvBTN {
+  background-color: $main;
+  color: #fff;
+  padding: 10px 15px;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-decoration: none;
+  border: 1px solid $main;
+  transition: 0.3s;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+    background: #fff;
+    color: $main;
+  }
+}
+//Contact page
+.contactpage {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  padding: 0 20px;
+  .mail,
+  .phone {
+    padding-bottom: 50px;
+    padding-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    img {
+      width: 100%;
+      max-width: 100px;
+    }
+    .info {
+      padding-top: 0;
+      padding-left: 20px;
+      font-size: 30px;
+      .heading {
+        color: $main;
+      }
+      a {
+        color: #556862;
+      }
+    }
+  }
+}
