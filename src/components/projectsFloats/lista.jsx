@@ -6,7 +6,6 @@ class ListaTech extends Component {
   }
 
   render() {
-    console.log(this.props.tech.split(","));
     return this.props.tech
       .split(",")
       .map((el, index) => <li key={index}>{el}</li>);

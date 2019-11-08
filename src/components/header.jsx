@@ -20,7 +20,6 @@ class Header extends Component {
   }
   componentDidUpdate(prevState) {
     if (this.state.isLightTheme !== prevState.isLightTheme) {
-      console.log("upadted");
       if (this.state.isLightTheme) {
         $("body").removeClass("dk");
       } else {
@@ -37,7 +36,6 @@ class Header extends Component {
   }
 
   changeTheme = () => {
-    console.log("theme changged ", this.state.isLightTheme);
     this.setState(prevState => {
       return {
         isLightTheme: !prevState.isLightTheme
@@ -45,7 +43,6 @@ class Header extends Component {
     });
   };
   handleClick = () => {
-    console.log("clicked");
     this.setState(prevState => {
       return {
         isNavOpen: !prevState.isNavOpen

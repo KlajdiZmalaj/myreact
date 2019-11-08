@@ -16,7 +16,7 @@ class Contact extends Component {
     $(window).scrollTop(0);
   }
   style = {
-    "background-color": "#566862"
+    backgroundColor: "#566862"
   };
   constructor(props) {
     super(props);

@@ -11,12 +11,17 @@ import contactWig from "../images/contact.png";
 import HomeProjects from "./projectsFloats/homeprojects";
 
 import ScrollAnimation from "react-animate-on-scroll";
-import projects from "../components/projectsFloats/projects.js";
 import Loader from "../components/loading";
 import thanks from "../images/thanks.png";
 import Footer from "./footer";
 
 class Homepage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      projectsHome: []
+    };
+  }
   componentDidMount() {
     $(window).scrollTop(0);
     $(".kz7Loader").css({
@@ -33,16 +38,16 @@ class Homepage extends Component {
         "overflow-y": "scroll"
       });
     }, 1000);
+    fetch("https://api.npoint.io/bda35451fcd7c177a220")
+      .then(projectsALL => projectsALL.json())
+      .then(projectsALL =>
+        this.setState({ projectsHome: projectsALL.projects })
+      );
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-
-    console.log("activaed");
-  }
   render() {
-    let allprojects = projects.map(function(project) {
+    const { projectsHome } = this.state;
+    let allprojects = projectsHome.map(function(project) {
       return (
         <HomeProjects
           key={project.id}
