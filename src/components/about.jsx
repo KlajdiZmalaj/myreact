@@ -21,7 +21,7 @@ class About extends Component {
   componentDidMount() {
     $(window).scrollTop(0);
   }
-
+  //
   render() {
     return (
       <div>
