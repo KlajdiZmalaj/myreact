@@ -12,7 +12,7 @@ import { FaDownload } from "react-icons/fa";
 import $ from "jquery";
 class About extends Component {
   style = {
-    backgroundColor: "#566862"
+    backgroundColor: "#566862",
   };
   constructor(props) {
     super(props);
@@ -28,7 +28,7 @@ class About extends Component {
         <Header src={img3} cover={this.style} nameH="aboutC" />
         <section className="aboutpage">
           <div className="heading">
-            Looking for a strategist and experienced web designer?
+            Looking for a strategist and experienced web developer?
           </div>
           <div className="info">
             <p>I've always been passionate about website development.</p>

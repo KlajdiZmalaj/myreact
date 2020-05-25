@@ -19,35 +19,35 @@ class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projectsHome: []
+      projectsHome: [],
     };
   }
   componentDidMount() {
     $(window).scrollTop(0);
     $(".kz7Loader").css({
-      display: "flex"
+      display: "flex",
     });
     $("body").css({
-      "overflow-y": "hidden"
+      "overflow-y": "hidden",
     });
-    setTimeout(function() {
+    setTimeout(function () {
       $(".kz7Loader").css({
-        display: "none"
+        display: "none",
       });
       $("body").css({
-        "overflow-y": "scroll"
+        "overflow-y": "scroll",
       });
     }, 1000);
     fetch("https://api.npoint.io/bda35451fcd7c177a220")
-      .then(projectsALL => projectsALL.json())
-      .then(projectsALL =>
+      .then((projectsALL) => projectsALL.json())
+      .then((projectsALL) =>
         this.setState({ projectsHome: projectsALL.projects })
       );
   }
 
   render() {
     const { projectsHome } = this.state;
-    let allprojects = projectsHome.map(function(project) {
+    let allprojects = projectsHome.map(function (project) {
       return (
         <HomeProjects
           key={project.id}
@@ -65,11 +65,11 @@ class Homepage extends Component {
         <Loader />
         <Header src={img1} nameH="aboutH" />
         <h1 className="heading1">
-          LOOKING FOR A STRATEGIST AND EXPERIENCED WEB DESIGNER?
+          LOOKING FOR A STRATEGIST AND EXPERIENCED WEB DEVELOPER?
         </h1>
         <h2 className="heading2">
-          I am a Web Designer, living in Tirana. <br /> I have been living my
-          dream of being a designer.
+          I am a Web Developer, living in Tirana. <br /> I have been living my
+          dream of being a developer.
         </h2>
         <div className="myPic">
           <img src={mypic} alt="" />
