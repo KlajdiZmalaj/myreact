@@ -23,12 +23,14 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
+  display: flex;
 }
 body::-webkit-scrollbar-track {
   background: #ccc;
 }
-
+.scrollRemove {
+  overflow-y: hidden !important;
+}
 body::-webkit-scrollbar-thumb {
   background-color: rgb(126, 126, 126);
   border: 1px solid #ccc;

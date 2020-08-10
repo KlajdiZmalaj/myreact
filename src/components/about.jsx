@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import $ from "jquery";
 import Header from "./header.jsx";
 import img3 from "../images/aboutpaper.png";
 import Wigle from "./navWigle";
@@ -9,7 +8,6 @@ import aboutWig from "../images/about.png";
 import contactWig from "../images/contact.png";
 import Footer from "./footer";
 import { FaDownload } from "react-icons/fa";
-import $ from "jquery";
 class About extends Component {
   style = {
     backgroundColor: "#566862",
@@ -19,13 +17,20 @@ class About extends Component {
     this.state = {};
   }
   componentDidMount() {
-    $(window).scrollTop(0);
+    window.scrollTo(0, 0);
   }
   //
   render() {
+    const { isDark, setTheme } = this.props;
     return (
-      <div>
-        <Header src={img3} cover={this.style} nameH="aboutC" />
+      <React.Fragment>
+        <Header
+          isDark={isDark}
+          setTheme={setTheme}
+          src={img3}
+          cover={this.style}
+          nameH="aboutC"
+        />
         <section className="aboutpage">
           <div className="heading">
             Looking for a strategist and experienced web developer?
@@ -70,7 +75,7 @@ class About extends Component {
           </Link>
         </section>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }

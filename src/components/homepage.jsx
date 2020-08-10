@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import Header from "./header";
 import img1 from "../images/homepaper.png";
 import mypic from "../images/mypic2.png";
@@ -20,24 +19,15 @@ class Homepage extends Component {
     super(props);
     this.state = {
       projectsHome: [],
+      isLoading: true,
     };
   }
   componentDidMount() {
-    $(window).scrollTop(0);
-    $(".kz7Loader").css({
-      display: "flex",
-    });
-    $("body").css({
-      "overflow-y": "hidden",
-    });
-    setTimeout(function () {
-      $(".kz7Loader").css({
-        display: "none",
-      });
-      $("body").css({
-        "overflow-y": "scroll",
-      });
-    }, 1000);
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 1500);
+
     fetch("https://api.npoint.io/bda35451fcd7c177a220")
       .then((projectsALL) => projectsALL.json())
       .then((projectsALL) =>
@@ -46,7 +36,8 @@ class Homepage extends Component {
   }
 
   render() {
-    const { projectsHome } = this.state;
+    const { projectsHome, isLoading } = this.state;
+    const { isDark, setTheme } = this.props;
     let allprojects = projectsHome.map(function (project) {
       return (
         <HomeProjects
@@ -59,11 +50,15 @@ class Homepage extends Component {
         />
       );
     });
-
+    if (isLoading) {
+      document.body.classList.add("scrollRemove");
+    } else {
+      document.body.classList.remove("scrollRemove");
+    }
     return (
-      <div>
-        <Loader />
-        <Header src={img1} nameH="aboutH" />
+      <React.Fragment>
+        {isLoading && <Loader />}
+        <Header isDark={isDark} setTheme={setTheme} src={img1} nameH="aboutH" />
         <h1 className="heading1">
           LOOKING FOR A STRATEGIST AND EXPERIENCED WEB DEVELOPER?
         </h1>
@@ -96,7 +91,7 @@ class Homepage extends Component {
           </section>
         </ScrollAnimation>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }

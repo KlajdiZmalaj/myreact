@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import $ from "jquery";
 import Header from "./header.jsx";
 import img4 from "../images/contactpaper.jpg";
 import phone from "../images/phone.png";
@@ -10,22 +9,28 @@ import workWig from "../images/work.png";
 import aboutWig from "../images/about.png";
 import contactWig from "../images/contact.png";
 import Footer from "./footer";
-import $ from "jquery";
 class Contact extends Component {
   componentDidMount() {
-    $(window).scrollTop(0);
+    window.scrollTo(0, 0);
   }
   style = {
-    backgroundColor: "#566862"
+    backgroundColor: "#566862",
   };
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
+    const { isDark, setTheme } = this.props;
     return (
-      <div>
-        <Header src={img4} cover={this.style} nameH="aboutCC" />
+      <React.Fragment>
+        <Header
+          isDark={isDark}
+          setTheme={setTheme}
+          src={img4}
+          cover={this.style}
+          nameH="aboutCC"
+        />
         <section className="contactpage">
           <div className="mail">
             <img src={mail} alt="" />
@@ -59,7 +64,7 @@ class Contact extends Component {
           </Link>
         </section>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }

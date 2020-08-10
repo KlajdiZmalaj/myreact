@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import $ from "jquery";
 import Header from "./header.jsx";
 import img2 from "../images/workpaper.png";
 import WorkProjects from "./projectsFloats/workprojects";
@@ -11,39 +10,48 @@ import workWig from "../images/work.png";
 import aboutWig from "../images/about.png";
 import contactWig from "../images/contact.png";
 import Footer from "./footer";
-import $ from "jquery";
 
 class Work extends Component {
   constructor(props) {
     super(props);
     this.state = {
       projectsWork: [],
-      slides: []
+      slides: [],
     };
   }
   style = {
-    backgroundColor: "#EC5656"
+    backgroundColor: "#EC5656",
   };
   componentDidMount() {
-    $(window).scrollTop(0);
+    window.scrollTo(0, 0);
     fetch("https://api.npoint.io/bda35451fcd7c177a220")
-      .then(projectsALL => projectsALL.json())
-      .then(projectsALL =>
+      .then((projectsALL) => projectsALL.json())
+      .then((projectsALL) =>
         this.setState({
           projectsWork: projectsALL.projectswork,
-          slides: projectsALL.slider
+          slides: projectsALL.slider,
         })
       );
   }
   render() {
     const { projectsWork, slides } = this.state;
-    let allslides = slides.map(item => {
+    const { isDark, setTheme } = this.props;
+    let allslides = slides.map((item) => {
       return (
         <div key={item.id}>
-          <img
-            src={"http://klajdizmalaj.com/img/designs/" + item.slide}
-            alt=""
-          />
+          <a
+            href={`http://klajdizmalaj.com/img/designs/${item.slide}`}
+            target="_blank"
+          >
+            <img
+              src={
+                window.location.href.includes("localhost")
+                  ? `http://klajdizmalaj.com/img/designs/${item.slide}`
+                  : `/img/designs/${item.slide}`
+              }
+              alt=""
+            />
+          </a>
         </div>
       );
     });
@@ -53,26 +61,26 @@ class Work extends Component {
           loop: true,
           el: ".swiper-pagination",
           type: "bullets",
-          clickable: true
+          clickable: true,
         },
         breakpoints: {
           640: {
-            slidesPerView: 2
+            slidesPerView: 2,
           },
           420: {
-            slidesPerView: 1
-          }
+            slidesPerView: 1,
+          },
         },
         slidesPerView: 1,
         navigation: {
           nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
+          prevEl: ".swiper-button-prev",
+        },
       };
 
       return <Swiper {...params}>{allslides}</Swiper>;
     };
-    let allprojects = projectsWork.map(function(project) {
+    let allprojects = projectsWork.map(function (project) {
       return (
         <ScrollAnimation
           animateIn={project.side === "left" ? "bounceInRight" : "bounceInLeft"}
@@ -92,7 +100,13 @@ class Work extends Component {
     });
     return (
       <div className="workpage" ref={this.myRef}>
-        <Header src={img2} cover={this.style} nameH="aboutW" />
+        <Header
+          isDark={isDark}
+          setTheme={setTheme}
+          src={img2}
+          cover={this.style}
+          nameH="aboutW"
+        />
         <span className="heading">
           Here you can find some of my projects that I have created
         </span>

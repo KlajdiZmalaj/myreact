@@ -7,28 +7,29 @@ import Work from "./components/work.jsx";
 import About from "./components/about.jsx";
 import Contact from "./components/contact.jsx";
 
-// import $ from "jquery";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { isDark: false };
   }
-
+  setTheme = (isDark) => {
+    this.setState({ isDark });
+  };
   render() {
     return (
       <Router>
         <Switch>
           <Route path="/" exact>
-            <Homepage />
+            <Homepage isDark={this.state.isDark} setTheme={this.setTheme} />
           </Route>
           <Route path="/about">
-            <About />
+            <About isDark={this.state.isDark} setTheme={this.setTheme} />
           </Route>
           <Route path="/work">
-            <Work />
+            <Work isDark={this.state.isDark} setTheme={this.setTheme} />
           </Route>
           <Route path="/contact">
-            <Contact />
+            <Contact isDark={this.state.isDark} setTheme={this.setTheme} />
           </Route>
         </Switch>
       </Router>

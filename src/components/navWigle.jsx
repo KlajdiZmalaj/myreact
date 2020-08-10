@@ -1,18 +1,9 @@
-import React, { Component } from "react";
-class Wigle extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div className="wigle">
-        <img src={this.props.wigIMG} alt="" className="wigleimg" />
-        <span className="wigletxt">{this.props.wigTXT}</span>
-      </div>
-    );
-  }
-}
+import React from "react";
+const Wigle = (props) => (
+  <div className="wigle">
+    <img src={props.wigIMG} alt="" className="wigleimg" />
+    <span className="wigletxt">{props.wigTXT}</span>
+  </div>
+);
 
 export default Wigle;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import { Link } from "react-router-dom";
 import { MdPhone, MdMailOutline } from "react-icons/md";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
@@ -8,52 +7,38 @@ import {
   IoLogoInstagram,
   IoLogoYoutube,
   IoIosSunny,
-  IoIosMoon
+  IoIosMoon,
 } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa";
 
 class Header extends Component {
-  componentDidMount() {
-    $(".sidenav li").click(() => {
-      $("body").scrollTop(0);
-    });
-  }
-  componentDidUpdate(prevState) {
-    if (this.state.isLightTheme !== prevState.isLightTheme) {
-      if (this.state.isLightTheme) {
-        $("body").removeClass("dk");
-      } else {
-        $("body").addClass("dk");
-      }
-    }
-  }
   constructor(props) {
     super(props);
     this.state = {
       isNavOpen: false,
-      isLightTheme: true
     };
   }
 
   changeTheme = () => {
-    this.setState(prevState => {
-      return {
-        isLightTheme: !prevState.isLightTheme
-      };
-    });
+    if (this.props.isDark) {
+      this.props.setTheme(false);
+    } else {
+      this.props.setTheme(true);
+    }
   };
   handleClick = () => {
-    this.setState(prevState => {
-      return {
-        isNavOpen: !prevState.isNavOpen
-      };
-    });
+    this.setState({ isNavOpen: !this.state.isNavOpen });
   };
   render() {
+    if (this.props.isDark) {
+      document.body.classList.add("dk");
+    } else {
+      document.body.classList.remove("dk");
+    }
     return (
-      <div>
+      <header>
         <div
-          onClick={this.handleClick}
+          onClick={() => this.setState({ isNavOpen: false })}
           className={"backdrop" + (this.state.isNavOpen ? " on" : "")}
         ></div>
         <nav className="header">
@@ -66,7 +51,7 @@ class Header extends Component {
             </a>
           </div>
           <div onClick={this.changeTheme} className="themChange">
-            {this.state.isLightTheme ? (
+            {!this.props.isDark ? (
               <span className="dark">
                 <IoIosMoon />
               </span>
@@ -120,7 +105,7 @@ class Header extends Component {
         <div className={this.props.nameH + " cover"} style={this.props.cover}>
           <img src={this.props.src} alt="" />
         </div>
-      </div>
+      </header>
     );
   }
 }

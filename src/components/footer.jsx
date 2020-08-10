@@ -1,20 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import imglogo from "../images/logokwhite.png";
-class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <footer>
-        <div className="mylogo">
-          <img src={imglogo} alt="" />
-        </div>
-        {/* <div id="me"></div> */}
-      </footer>
-    );
-  }
-}
 
+const Footer = () => (
+  <footer>
+    <div className="mylogo">
+      <img src={imglogo} alt="" />
+    </div>
+  </footer>
+);
 export default Footer;
