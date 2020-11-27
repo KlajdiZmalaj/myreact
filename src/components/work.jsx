@@ -24,12 +24,12 @@ class Work extends Component {
   };
   componentDidMount() {
     window.scrollTo(0, 0);
-    fetch("https://api.npoint.io/bda35451fcd7c177a220")
+    fetch("https://klajdi-backend.herokuapp.com/api/projects")
       .then((projectsALL) => projectsALL.json())
       .then((projectsALL) =>
         this.setState({
-          projectsWork: projectsALL.projectswork,
-          slides: projectsALL.slider,
+          projectsWork: projectsALL[0].projectswork,
+          slides: projectsALL[0].slider,
         })
       );
   }

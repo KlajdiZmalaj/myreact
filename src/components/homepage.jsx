@@ -28,11 +28,14 @@ class Homepage extends Component {
       this.setState({ isLoading: false });
     }, 1500);
 
-    fetch("https://api.npoint.io/bda35451fcd7c177a220")
-      .then((projectsALL) => projectsALL.json())
-      .then((projectsALL) =>
-        this.setState({ projectsHome: projectsALL.projects })
-      );
+    fetch("https://klajdi-backend.herokuapp.com/api/projects")
+      .then((projectsALL) => {
+        return projectsALL.json();
+      })
+      .then((projectsALL) => {
+        console.log("projectsALL", projectsALL);
+        this.setState({ projectsHome: projectsALL[0].projects });
+      });
   }
 
   render() {

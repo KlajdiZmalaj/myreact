@@ -43,16 +43,18 @@ class About extends Component {
             </p>
             <p>
               One year later I decided to join a professional school, an ICT
-              school where there I learned about web developing.
+              school where there I learned about web developing and later I got
+              a college degree for Information and Technology.
             </p>
             <p>
               Now I'm working as a Front End Devloper in a company in Albania
+              and on my freelance project I work as a MERN stack developer
             </p>
             <p>
-              I know how to use languages like : HTML5 (semantic),CSS
-              (css3/Scss/SaSS/bootstrap v3-v4), JavaScript (jQuery library,React
-              JS) ,SQL,PHP and as a graphic designer I can use app like
-              Photoshop and Illustrator.
+              I'm used with languaes like: HTML5 (semantic),CSS
+              (css3/Scss/SaSS/bootstrap v3-v4), JavaScript (React JS, jQuery
+              library), NodeJS , ExpressJS, MangoDB and as a graphic designer I
+              can use app like Photoshop , Illustrator , AdobeXD.
             </p>
           </div>
           <a

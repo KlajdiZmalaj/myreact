@@ -11,12 +11,8 @@ const HomeProjects = (props) => (
           <img src={mac} className="img-fluid mac" alt="" />
           <img
             className="img-fluid gif"
-            src={
-              window.location.href.includes("localhost")
-                ? `http://klajdizmalaj.com/${props.proIMG}`
-                : props.proIMG
-            }
-            alt=""
+            src={props.proIMG}
+            alt={props.proIMG}
           />
         </div>
         <div className="col-md-6 infoProject">
