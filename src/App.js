@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import "./css/main.scss";
 import Homepage from "./components/homepage.jsx";
@@ -17,7 +17,7 @@ class App extends Component {
   };
   render() {
     return (
-      <Router>
+      <HashRouter>
         <Switch>
           <Route path="/" exact>
             <Homepage isDark={this.state.isDark} setTheme={this.setTheme} />
@@ -32,7 +32,7 @@ class App extends Component {
             <Contact isDark={this.state.isDark} setTheme={this.setTheme} />
           </Route>
         </Switch>
-      </Router>
+      </HashRouter>
     );
   }
 }
