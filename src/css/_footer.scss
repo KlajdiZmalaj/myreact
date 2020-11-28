@@ -1,5 +1,5 @@
 footer {
-  background-image: url("http://klajdizmalaj.com/img/footer.png");
+  background-image: url("./img/footer.png");
   width: 100%;
   height: auto;
   background-repeat: no-repeat;
@@ -18,17 +18,17 @@ footer {
   }
 }
 
-#me {
-  background: url(http://klajdizmalaj.com/img/walk.jpg);
-  width: 120px;
-  height: 180px;
-  animation: walk-east 1s steps(8) infinite;
-}
-@keyframes walk-east {
-  from {
-    background-position: 0px;
-  }
-  to {
-    background-position: -960px;
-  }
-}
+// #me {
+//   background: url(http://klajdizmalaj.com/img/walk.jpg);
+//   width: 120px;
+//   height: 180px;
+//   animation: walk-east 1s steps(8) infinite;
+// }
+// @keyframes walk-east {
+//   from {
+//     background-position: 0px;
+//   }
+//   to {
+//     background-position: -960px;
+//   }
+// }
