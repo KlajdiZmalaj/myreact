@@ -1,5 +1,9 @@
 //theme dark
 .dk {
+  .myPic img {
+    mix-blend-mode: multiply;
+    filter: grayscale(0) brightness(1.5) hue-rotate(283deg);
+  }
   * {
     transition: background 0.3s, background-color 0.3s;
   }

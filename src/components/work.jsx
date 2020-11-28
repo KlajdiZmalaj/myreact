@@ -28,8 +28,8 @@ class Work extends Component {
       .then((projectsALL) => projectsALL.json())
       .then((projectsALL) =>
         this.setState({
-          projectsWork: projectsALL[0].projectswork,
-          slides: projectsALL[0].slider,
+          projectsWork: projectsALL[0]?.projectswork || [],
+          slides: projectsALL[0]?.slider || [],
         })
       );
   }
