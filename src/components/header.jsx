@@ -73,7 +73,13 @@ class Header extends Component {
           </div>
           <div className={"sidenav" + (this.state.isNavOpen ? " show" : "")}>
             <div className="logoNav">
-              <img src={imglogo} alt="" />
+              <img
+                src={imglogo}
+                alt=""
+                onClick={() => {
+                  window.location.hash = "";
+                }}
+              />
               <ul>
                 <li>
                   <Link to="/">Home</Link>

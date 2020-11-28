@@ -1,10 +1,10 @@
 //fonts
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
 //font-family: 'Source Sans Pro', sans-serif;
 //vars
 $main: #e63e45;
 $accent: #fbf6a7;
-$font: "Source Sans Pro", sans-serif;
+$font: "Lato", sans-serif;
 body ::selection {
   background: $main;
   color: $accent;
