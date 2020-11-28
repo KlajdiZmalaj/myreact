@@ -7,6 +7,7 @@ import Work from "./components/work.jsx";
 import About from "./components/about.jsx";
 import Contact from "./components/contact.jsx";
 
+//
 class App extends Component {
   constructor(props) {
     super(props);
