@@ -26,8 +26,14 @@ class Work extends Component {
   async componentDidMount() {
     window.scrollTo(0, 0);
 
-    const posts2 = await axios.get("http://localhost:5000/api/work/posts", {});
-    const slides = await axios.get("http://localhost:5000/api/work/slides", {});
+    const posts2 = await axios.get(
+      "https://klajdi-backend.herokuapp.com/api/work/posts",
+      {}
+    );
+    const slides = await axios.get(
+      "https://klajdi-backend.herokuapp.com/api/work/slides",
+      {}
+    );
 
     this.setState({
       projectsWork: posts2.data || [],

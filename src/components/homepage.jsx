@@ -27,8 +27,15 @@ class Homepage extends Component {
     window.scrollTo(0, 0);
     //https://klajdi-backend.herokuapp.com/api/projects
     this.setState({ isLoading: true });
-    const posts = await axios.get("http://localhost:5000/api/home/posts", {});
-    this.setState({ projectsHome: posts.data, isLoading: false });
+    const posts = await axios.get(
+      "https://klajdi-backend.herokuapp.com/api/home/posts",
+      {}
+    );
+    const _ = this;
+    setTimeout(() => {
+      _.setState({ isLoading: false });
+    }, 1000);
+    this.setState({ projectsHome: posts.data });
   }
 
   render() {

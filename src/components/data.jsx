@@ -10,16 +10,25 @@ export class data extends Component {
     logged: false,
   };
   delete = (url, id) => {
-    return axios.post(`http://localhost:5000/api/${url}`, {
+    return axios.post(`https://klajdi-backend.herokuapp.com/api/${url}`, {
       id,
     });
   };
   create = () => {};
   getAll = async () => {
     this.setState({ loaded: false });
-    const posts = await axios.get("http://localhost:5000/api/home/posts", {});
-    const posts2 = await axios.get("http://localhost:5000/api/work/posts", {});
-    const slides = await axios.get("http://localhost:5000/api/work/slides", {});
+    const posts = await axios.get(
+      "https://klajdi-backend.herokuapp.com/api/home/posts",
+      {}
+    );
+    const posts2 = await axios.get(
+      "https://klajdi-backend.herokuapp.com/api/work/posts",
+      {}
+    );
+    const slides = await axios.get(
+      "https://klajdi-backend.herokuapp.com/api/work/slides",
+      {}
+    );
     console.log("posts", posts.data);
     if (posts.data) {
       this.setState({
@@ -72,7 +81,7 @@ export class data extends Component {
                   e.stopPropagation();
                   const { id, img, desc, link, side, title, tech } = this.state;
                   const req = await axios.post(
-                    `http://localhost:5000/api/${
+                    `https://klajdi-backend.herokuapp.com/api/${
                       createTitle === "homeProject" ? "home" : "work"
                     }/post`,
                     {
@@ -153,7 +162,7 @@ export class data extends Component {
                   e.stopPropagation();
                   const { id, slide } = this.state;
                   const req = await axios.post(
-                    `http://localhost:5000/api/work/postSlide`,
+                    `https://klajdi-backend.herokuapp.com/api/work/postSlide`,
                     {
                       id,
                       slide,
