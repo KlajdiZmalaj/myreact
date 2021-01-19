@@ -46,15 +46,12 @@ class Work extends Component {
     let allslides = slides.map((item) => {
       return (
         <div key={item.id}>
-          <a
-            href={`http://klajdizmalaj.com/img/designs/${item.slide}`}
-            target="_blank"
-          >
+          <a href={`http://klajdizmalaj.com${item.slide}`} target="_blank">
             <img
               src={
                 window.location.href.includes("localhost")
-                  ? `http://klajdizmalaj.com/img/designs/${item.slide}`
-                  : `/img/designs/${item.slide}`
+                  ? `http://klajdizmalaj.com${item.slide}`
+                  : `${item.slide}`
               }
               alt=""
             />
