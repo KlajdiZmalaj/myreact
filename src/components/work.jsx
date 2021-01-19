@@ -10,6 +10,7 @@ import workWig from "../images/work.png";
 import aboutWig from "../images/about.png";
 import contactWig from "../images/contact.png";
 import Footer from "./footer";
+import axios from "axios";
 
 class Work extends Component {
   constructor(props) {
@@ -22,16 +23,16 @@ class Work extends Component {
   style = {
     backgroundColor: "#EC5656",
   };
-  componentDidMount() {
+  async componentDidMount() {
     window.scrollTo(0, 0);
-    fetch("https://klajdi-backend.herokuapp.com/api/projects")
-      .then((projectsALL) => projectsALL.json())
-      .then((projectsALL) =>
-        this.setState({
-          projectsWork: projectsALL[0]?.projectswork || [],
-          slides: projectsALL[0]?.slider || [],
-        })
-      );
+
+    const posts2 = await axios.get("http://localhost:5000/api/work/posts", {});
+    const slides = await axios.get("http://localhost:5000/api/work/slides", {});
+
+    this.setState({
+      projectsWork: posts2.data || [],
+      slides: slides.data || [],
+    });
   }
   render() {
     const { projectsWork, slides } = this.state;

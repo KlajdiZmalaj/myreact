@@ -6,7 +6,7 @@ import Homepage from "./components/homepage.jsx";
 import Work from "./components/work.jsx";
 import About from "./components/about.jsx";
 import Contact from "./components/contact.jsx";
-
+import Data from "./components/data.jsx";
 //
 class App extends Component {
   constructor(props) {
@@ -31,6 +31,9 @@ class App extends Component {
           </Route>
           <Route path="/contact">
             <Contact isDark={this.state.isDark} setTheme={this.setTheme} />
+          </Route>
+          <Route path="/data">
+            <Data isDark={this.state.isDark} setTheme={this.setTheme} />
           </Route>
         </Switch>
       </HashRouter>

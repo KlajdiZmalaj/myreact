@@ -13,6 +13,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import Loader from "../components/loading";
 import thanks from "../images/thanks.png";
 import Footer from "./footer";
+import axios from "axios";
 
 class Homepage extends Component {
   constructor(props) {
@@ -22,20 +23,12 @@ class Homepage extends Component {
       isLoading: true,
     };
   }
-  componentDidMount() {
+  async componentDidMount() {
     window.scrollTo(0, 0);
-    setTimeout(() => {
-      this.setState({ isLoading: false });
-    }, 1500);
-
-    fetch("https://klajdi-backend.herokuapp.com/api/projects")
-      .then((projectsALL) => {
-        return projectsALL.json();
-      })
-      .then((projectsALL) => {
-        console.log("projectsALL", projectsALL);
-        this.setState({ projectsHome: projectsALL[0]?.projects || [] });
-      });
+    //https://klajdi-backend.herokuapp.com/api/projects
+    this.setState({ isLoading: true });
+    const posts = await axios.get("http://localhost:5000/api/home/posts", {});
+    this.setState({ projectsHome: posts.data, isLoading: false });
   }
 
   render() {

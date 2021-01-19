@@ -50,3 +50,28 @@ body {
 @import "footer";
 @import "media";
 @import "newTheme";
+
+.createPP {
+  display: flex;
+  position: fixed;
+  background-color: #fff;
+  color: #222;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  > div:nth-child(2) {
+    display: flex;
+    flex-flow: row wrap;
+    span,
+    input {
+      width: 50%;
+    }
+    button {
+      width: 100%;
+    }
+  }
+}
