@@ -84,24 +84,30 @@ class Work extends Component {
 
       return <Swiper {...params}>{allslides}</Swiper>;
     };
-    let allprojects = projectsWork.map(function (project) {
-      return (
-        <ScrollAnimation
-          animateIn={project.side === "left" ? "bounceInRight" : "bounceInLeft"}
-          key={project.id}
-        >
-          <WorkProjects
+    let allprojects = projectsWork
+      .sort((a, b) => {
+        return a.id - b.id;
+      })
+      .map(function (project) {
+        return (
+          <ScrollAnimation
+            animateIn={
+              project.side === "left" ? "bounceInRight" : "bounceInLeft"
+            }
             key={project.id}
-            proIMG={project.img}
-            title={project.title}
-            desc={project.desc}
-            link={project.link}
-            side={project.side}
-            tech={project.tech}
-          />
-        </ScrollAnimation>
-      );
-    });
+          >
+            <WorkProjects
+              key={project.id}
+              proIMG={project.img}
+              title={project.title}
+              desc={project.desc}
+              link={project.link}
+              side={project.side}
+              tech={project.tech}
+            />
+          </ScrollAnimation>
+        );
+      });
     return (
       <div className="workpage" ref={this.myRef}>
         <Header
