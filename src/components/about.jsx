@@ -1,27 +1,27 @@
-import React, { Component } from "react";
+import React,{Component} from "react";
 import Header from "./header.jsx";
 import img3 from "../images/aboutpaper.png";
 import Wigle from "./navWigle";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import workWig from "../images/work.png";
 import aboutWig from "../images/about.png";
 import contactWig from "../images/contact.png";
 import Footer from "./footer";
-import { FaDownload } from "react-icons/fa";
+import {FaDownload} from "react-icons/fa";
 class About extends Component {
-  style = {
+  style={
     backgroundColor: "#566862",
   };
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state={};
   }
   componentDidMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
   }
   //
   render() {
-    const { isDark, setTheme } = this.props;
+    const {isDark,setTheme}=this.props;
     return (
       <React.Fragment>
         <Header
@@ -33,22 +33,18 @@ class About extends Component {
         />
         <section className="aboutpage">
           <div className="heading">
-            Looking for a strategist and experienced web developer?
+            Looking for a strategist and experienced Front-End developer?
           </div>
           <div className="info">
             <p>I've always been passionate about website development.</p>
             <p>
               Since I was very young I started playing with codes, in the 9th
-              grade i created my first website.
+              grade I created my first website.
             </p>
-            <p>
-              One year later I decided to join a professional school, an ICT
-              school where there I learned about web developing and later I got
-              a college degree for Information and Technology.
-            </p>
+
             <p>
               Now I'm working as a Front End Devloper in a company in Albania
-              and on my freelance project I work as a MERN stack developer
+              and on my freelance project I work as a MERN stack developer.
             </p>
             <p>
               I'm used with languaes like: HTML5 (semantic),CSS
@@ -59,7 +55,7 @@ class About extends Component {
           </div>
           <a
             target="_blank"
-            href="http://klajdizmalaj.com/assets/cvenglish.pdf"
+            href="/static/cvenglish.pdf"
             className="cvBTN"
           >
             Download a copy of my CV <FaDownload />

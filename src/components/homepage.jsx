@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React,{Component} from "react";
 import Header from "./header";
 import img1 from "../images/homepaper.png";
-import mypic from "../images/mypic.jpg";
 import Wigle from "./navWigle";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import workWig from "../images/work.png";
 import aboutWig from "../images/about.png";
 import contactWig from "../images/contact.png";
@@ -18,30 +17,30 @@ import axios from "axios";
 class Homepage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state={
       projectsHome: [],
       isLoading: true,
     };
   }
   async componentDidMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
     //https://klajdi-backend.herokuapp.com/api/projects
-    this.setState({ isLoading: true });
-    const posts = await axios.get(
+    this.setState({isLoading: true});
+    const posts=await axios.get(
       "https://klajdi-backend.herokuapp.com/api/home/posts",
       {}
     );
-    const _ = this;
+    const _=this;
     setTimeout(() => {
-      _.setState({ isLoading: false });
-    }, 1000);
-    this.setState({ projectsHome: posts.data });
+      _.setState({isLoading: false});
+    },1000);
+    this.setState({projectsHome: posts.data});
   }
 
   render() {
-    const { projectsHome, isLoading } = this.state;
-    const { isDark, setTheme } = this.props;
-    let allprojects = projectsHome.map(function (project) {
+    const {projectsHome,isLoading}=this.state;
+    const {isDark,setTheme}=this.props;
+    let allprojects=projectsHome.map(function(project) {
       return (
         <HomeProjects
           key={project.id}
@@ -53,16 +52,16 @@ class Homepage extends Component {
         />
       );
     });
-    if (isLoading) {
+    if(isLoading) {
       document.body.classList.add("scrollRemove");
     } else {
       document.body.classList.remove("scrollRemove");
     }
     return (
       <React.Fragment>
-        {isLoading ? (
+        {isLoading? (
           <Loader />
-        ) : (
+        ):(
           <>
             <Header
               isDark={isDark}
@@ -78,7 +77,7 @@ class Homepage extends Component {
               my dream of being a developer.
             </h2>
             <div className="myPic">
-              <img src={mypic} alt="" />
+              <img src={'/static/mypic.jpg'} alt="" />
             </div>
             <section className="wigs">
               <Link to="/work">

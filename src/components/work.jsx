@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React,{Component} from "react";
 import Header from "./header.jsx";
 import img2 from "../images/workpaper.png";
 import WorkProjects from "./projectsFloats/workprojects";
 import ScrollAnimation from "react-animate-on-scroll";
 import Swiper from "react-id-swiper";
 import Wigle from "./navWigle";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import workWig from "../images/work.png";
 import aboutWig from "../images/about.png";
 import contactWig from "../images/contact.png";
@@ -15,35 +15,35 @@ import axios from "axios";
 class Work extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state={
       projectsWork: [],
       slides: [],
     };
   }
-  style = {
+  style={
     backgroundColor: "#EC5656",
   };
   async componentDidMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
 
-    const posts2 = await axios.get(
+    const posts2=await axios.get(
       "https://klajdi-backend.herokuapp.com/api/work/posts",
       {}
     );
-    const slides = await axios.get(
+    const slides=await axios.get(
       "https://klajdi-backend.herokuapp.com/api/work/slides",
       {}
     );
 
     this.setState({
-      projectsWork: posts2.data || [],
-      slides: slides.data || [],
+      projectsWork: posts2.data||[],
+      slides: slides.data||[],
     });
   }
   render() {
-    const { projectsWork, slides } = this.state;
-    const { isDark, setTheme } = this.props;
-    let allslides = slides.map((item) => {
+    const {projectsWork,slides}=this.state;
+    const {isDark,setTheme}=this.props;
+    let allslides=slides.map((item) => {
       return (
         <div key={item.id}>
           <a href={`http://klajdizmalaj.com${item.slide}`} target="_blank">
@@ -51,7 +51,7 @@ class Work extends Component {
               src={
                 window.location.href.includes("localhost")
                   ? `http://klajdizmalaj.com${item.slide}`
-                  : `${item.slide}`
+                  :`${item.slide}`
               }
               alt=""
             />
@@ -59,8 +59,8 @@ class Work extends Component {
         </div>
       );
     });
-    const SimpleSwiperWithParams = () => {
-      const params = {
+    const SimpleSwiperWithParams=() => {
+      const params={
         pagination: {
           loop: true,
           el: ".swiper-pagination",
@@ -84,15 +84,15 @@ class Work extends Component {
 
       return <Swiper {...params}>{allslides}</Swiper>;
     };
-    let allprojects = projectsWork
-      .sort((a, b) => {
-        return a.id - b.id;
+    let allprojects=projectsWork
+      .sort((a,b) => {
+        return a.id-b.id;
       })
-      .map(function (project) {
+      .map(function(project) {
         return (
           <ScrollAnimation
             animateIn={
-              project.side === "left" ? "bounceInRight" : "bounceInLeft"
+              project.side==="left"? "bounceInRight":"bounceInLeft"
             }
             key={project.id}
           >
@@ -118,11 +118,11 @@ class Work extends Component {
           nameH="aboutW"
         />
         <span className="heading">
-          Here you can find some of my projects that I have created
+          Here you can find some of my projects that I have worked on
         </span>
         <section className="workProjects">{allprojects}</section>
         <span className="heading">
-          Here you can find some of my designs that I have made
+          Here you can find some of my graphics that I have made
         </span>
         <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
           <div className="designs">
